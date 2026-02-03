@@ -27,7 +27,20 @@ Map<String, dynamic> toMap(){
         'dueDate': dueDate.toIso8601String(),
         'priority': priority,
         'isCompleted': isCompleted,
-    }
+    };
 }
+
+//Create Assignment from Map
+
+factory Assignment.fromMap(Map<String, dynamic> map) {
+    return Assignment(
+      id: map['id'],
+      title: map['title'],
+      course: map['course'],
+      dueDate: DateTime.parse(map['dueDate']),
+      priority: map['priority'] ?? 'Medium',
+      isCompleted: map['isCompleted'] ?? false,
+    );
+  }
 
 }
