@@ -1,0 +1,36 @@
+# ============================================================
+# PUBSPEC.YAML - Project Configuration
+# This file defines the project name, dependencies, and SDK versions.
+# Run 'flutter pub get' after creating this file to install dependencies.
+#
+# TEAM MEMBER: Member 1 (Project Setup)
+# ============================================================
+
+name: alu_academic_assistant
+description: ALU Student Academic Assistant - helps students manage assignments, schedule sessions, and track attendance.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For saving data persistently on the device
+  shared_preferences: ^2.2.2
+
+  # Material icons (included with Flutter by default)
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
