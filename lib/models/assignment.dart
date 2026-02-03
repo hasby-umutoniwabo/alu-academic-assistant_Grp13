@@ -17,4 +17,17 @@ Assignment({
     this.isCompleted = false,
 }) : id = id ?? DateTime.now().millisecondsSinceEpoch.toString();
 
+//Convert Assignment to Map for JSON storage
+
+Map<String, dynamic> toMap(){
+    return {
+        'id' : id,
+        'title' : title,
+        'course': course,
+        'dueDate': dueDate.toIso8601String(),
+        'priority': priority,
+        'isCompleted': isCompleted,
+    }
+}
+
 }
