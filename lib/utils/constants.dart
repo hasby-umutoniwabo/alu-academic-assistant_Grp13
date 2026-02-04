@@ -10,3 +10,10 @@ class ALUColors {
   static const Color lightGrey = Color(0xFFB0BEC5);
 }
 
+// Global app theme using ALU branding
+final ThemeData aluTheme = ThemeData(
+  brightness: Brightness.dark,
+  useMaterial3: true,
+  scaffoldBackgroundColor: ALUColors.navy,
+  primaryColor: ALUColors.gold,
+);
