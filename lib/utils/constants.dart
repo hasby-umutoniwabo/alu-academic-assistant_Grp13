@@ -16,4 +16,26 @@ final ThemeData aluTheme = ThemeData(
   useMaterial3: true,
   scaffoldBackgroundColor: ALUColors.navy,
   primaryColor: ALUColors.gold,
+  cardTheme: CardTheme(
+    color: ALUColors.darkBlue,
+    elevation: 2,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+);
+elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: ALUColors.gold,
+      foregroundColor: ALUColors.navy,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    ),
+  ),
+   inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: ALUColors.navy,
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: ALUColors.gold),
+    ),
+    labelStyle: const TextStyle(color: ALUColors.lightGrey),
+  ),
 );
