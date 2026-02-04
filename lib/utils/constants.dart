@@ -20,15 +20,38 @@ final ThemeData aluTheme = ThemeData(
     color: ALUColors.darkBlue,
     elevation: 2,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-);
-elevatedButtonTheme: ElevatedButtonThemeData(
+  ),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: ALUColors.navy,
+    foregroundColor: ALUColors.white,
+    elevation: 0,
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      color: ALUColors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: ALUColors.darkBlue,
+    selectedItemColor: ALUColors.gold,
+    unselectedItemColor: ALUColors.lightGrey,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: ALUColors.gold,
       foregroundColor: ALUColors.navy,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
   ),
-   inputDecorationTheme: InputDecorationTheme(
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(foregroundColor: ALUColors.gold),
+  ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: ALUColors.gold,
+    foregroundColor: ALUColors.navy,
+  ),
+  inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: ALUColors.navy,
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
