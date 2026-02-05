@@ -16,11 +16,15 @@ final ThemeData aluTheme = ThemeData(
   useMaterial3: true,
   scaffoldBackgroundColor: ALUColors.navy,
   primaryColor: ALUColors.gold,
+
+  // Card theme 
   cardTheme: CardTheme(
     color: ALUColors.darkBlue,
     elevation: 2,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
   ),
+
+//app bar theme 
   appBarTheme: const AppBarTheme(
     backgroundColor: ALUColors.navy,
     foregroundColor: ALUColors.white,
@@ -32,11 +36,14 @@ final ThemeData aluTheme = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
+
+  // Bottom navigation bar theme
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: ALUColors.darkBlue,
     selectedItemColor: ALUColors.gold,
     unselectedItemColor: ALUColors.lightGrey,
   ),
+//Elevated button theme
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: ALUColors.gold,
@@ -51,6 +58,8 @@ final ThemeData aluTheme = ThemeData(
     backgroundColor: ALUColors.gold,
     foregroundColor: ALUColors.navy,
   ),
+
+  //For text fields
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: ALUColors.navy,
