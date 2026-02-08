@@ -77,7 +77,6 @@ class _MainNavigationState extends State<MainNavigation> {
           jsonEncode(_assignments.map((a) => a.toMap()).toList());
       await prefs.setString('assignments', assignmentsJson);
 
-      // Convert sessions list to JSON and save
       final sessionsJson =
           jsonEncode(_sessions.map((s) => s.toMap()).toList());
       await prefs.setString('sessions', sessionsJson);
@@ -86,67 +85,49 @@ class _MainNavigationState extends State<MainNavigation> {
     }
   }
 
-  // ===== CALLBACK: Called by child screens when data changes =====
-  // This method is passed to child screens so they can notify us
-  // when they add, edit, or delete data
   void _onDataChanged() {
-    setState(() {}); // Rebuild the UI
-    _saveData(); // Save to persistent storage
+    setState(() {}); 
+    _saveData(); 
   }
 
   @override
   Widget build(BuildContext context) {
-    // ===== SCREEN LIST =====
-    // These are the 3 screens that correspond to the 3 tabs.
-    // The current screen is selected based on _currentIndex.
     final screens = [
-      // Tab 0: Dashboard
       DashboardScreen(
         assignments: _assignments,
         sessions: _sessions,
       ),
-      // Tab 1: Assignments
       AssignmentsScreen(
         assignments: _assignments,
         onDataChanged: _onDataChanged,
       ),
-      // Tab 2: Schedule
       ScheduleScreen(
         sessions: _sessions,
         onDataChanged: _onDataChanged,
       ),
     ];
 
-    // Tab titles for the app bar
     final titles = ['Dashboard', 'Assignments', 'Schedule'];
 
     return Scaffold(
-      // ===== APP BAR =====
       appBar: AppBar(
         title: Text(
           titles[_currentIndex],
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        // User icon on the right
         actions: [
           IconButton(
             icon: const Icon(Icons.person_outline),
             onPressed: () {
-              // Could show user profile in future
             },
           ),
         ],
       ),
-
-      // ===== BODY: Show the current screen =====
       body: screens[_currentIndex],
 
-      // ===== BOTTOM NAVIGATION BAR =====
-      // 3 tabs: Dashboard, Assignments, Schedule
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          // Switch to the tapped tab
           setState(() {
             _currentIndex = index;
           });
