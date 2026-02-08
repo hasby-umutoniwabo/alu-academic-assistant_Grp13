@@ -19,16 +19,10 @@ class ALUAcademicApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // App title shown in the task switcher
       title: 'ALU Academic Assistant',
-
-      // Apply our custom ALU theme from constants.dart
       theme: aluTheme,
 
-      // Remove the debug banner in the top-right corner
       debugShowCheckedModeBanner: false,
-
-      // Set the home screen to our main navigation screen
       home: const MainNavigation(),
     );
   }
