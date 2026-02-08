@@ -28,11 +28,6 @@ class ALUAcademicApp extends StatelessWidget {
   }
 }
 
-// ===== MAIN NAVIGATION SCREEN =====
-// This widget manages:
-// 1. The BottomNavigationBar (switching between tabs)
-// 2. The centralized data (assignments and sessions lists)
-// 3. Saving/loading data to/from shared_preferences
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -41,58 +36,43 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
-  // Track which tab is currently selected (0 = Dashboard, 1 = Assignments, 2 = Schedule)
   int _currentIndex = 0;
 
-  // ===== CENTRALIZED DATA =====
-  // These lists hold ALL the app data.
-  // They are passed down to child screens as needed.
   List<Assignment> _assignments = [];
   List<Session> _sessions = [];
 
-  // ===== LIFECYCLE: Called once when the widget is first created =====
   @override
   void initState() {
     super.initState();
-    // Load saved data when the app starts
     _loadData();
   }
 
-  // ===== DATA PERSISTENCE: Load data from shared_preferences =====
-  // This reads previously saved assignments and sessions from device storage
   Future<void> _loadData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // Load assignments from saved JSON string
       final assignmentsJson = prefs.getString('assignments');
       if (assignmentsJson != null) {
         final List<dynamic> decoded = jsonDecode(assignmentsJson);
         _assignments = decoded.map((map) => Assignment.fromMap(map)).toList();
       }
 
-      // Load sessions from saved JSON string
       final sessionsJson = prefs.getString('sessions');
       if (sessionsJson != null) {
         final List<dynamic> decoded = jsonDecode(sessionsJson);
         _sessions = decoded.map((map) => Session.fromMap(map)).toList();
       }
 
-      // Refresh the UI with loaded data
       setState(() {});
     } catch (e) {
-      // If loading fails, start with empty lists (this is fine for first run)
       debugPrint('Error loading data: $e');
     }
   }
 
-  // ===== DATA PERSISTENCE: Save data to shared_preferences =====
-  // This writes the current assignments and sessions to device storage
   Future<void> _saveData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // Convert assignments list to JSON and save
       final assignmentsJson =
           jsonEncode(_assignments.map((a) => a.toMap()).toList());
       await prefs.setString('assignments', assignmentsJson);
