@@ -1,16 +1,3 @@
-// ============================================================
-// DASHBOARD SCREEN
-// This is the main home screen of the app. It shows:
-// - Today's date and academic week number
-// - Today's scheduled sessions
-// - Assignments due in the next 7 days
-// - Overall attendance percentage with warning if below 75%
-// - Count of pending (incomplete) assignments
-// - Attendance history showing all recorded sessions
-//
-// TEAM MEMBER: Member 2 (Dashboard & Attendance Display)
-// ============================================================
-
 import 'package:flutter/material.dart';
 import '../models/assignment.dart';
 import '../models/session.dart';
@@ -32,7 +19,6 @@ class DashboardScreen extends StatelessWidget {
     final todayDate = DateTime(today.year, today.month, today.day);
 
     // ===== CALCULATE ACADEMIC WEEK =====
-    // Change this to your actual semester start (a Monday)
     final semesterStart = DateTime(2026, 1, 26);
     final daysSinceStart = todayDate.difference(semesterStart).inDays;
     final weekNumber = daysSinceStart >= 0 ? (daysSinceStart ~/ 7) + 1 : 1;
